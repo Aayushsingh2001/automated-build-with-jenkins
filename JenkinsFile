@@ -1,0 +1,25 @@
+pipeline {
+    agent any
+
+    tools {
+        nodejs 'NodeJS 18' // Configure NodeJS tool in Jenkins settings
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git 'https://github.com/Aayushsingh2001/automated-build-with-jenkins.git'
+            }
+        }
+        stage('Install dependencies') {
+            steps {
+                sh 'npm install'
+            }
+        }
+        stage('Run tests') {
+            steps {
+                sh 'npm test'
+            }
+        }
+    }
+}
