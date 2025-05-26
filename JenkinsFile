@@ -16,6 +16,12 @@ pipeline {
                 sh 'npm install'
             }
         }
+        stage('check version') {
+            steps {
+                sh 'node -V'
+                sh 'npm -V'
+            }
+        }
         stage('Run tests') {
             steps {
                 sh 'npm test'
